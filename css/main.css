@@ -1,0 +1,1090 @@
+/* 폰트 설정 */
+/* import형식으로 가지고 올때에도 내가 만들 CSS보다 위에다 선언 */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+.hidden{display: none;}
+
+/* 앞으로 만들 css아래에  */
+
+/* common : 공통의 스타일 정의 */
+body{font-family: 'Nanum Gothic', sans-serif;color: #333;font-weight: 400;line-height: 1.4;}
+
+img{display: block;}
+
+.inner{width: 1100px;margin: auto;position: relative;}
+
+.btn{width: 130px;padding: 10px;border: 2px solid #333;border-radius: 4px;color: #333;font-weight: bold;text-align: center;display: block;box-sizing: border-box;transition: all 0.4s;cursor: pointer;}
+.btn:hover{background: #333;color: #fff;}
+
+.btn.btn--brown{color: #816F41;border-color: #816F41;}
+.btn.btn--brown:hover{background: #816F41;color: #fff;}
+
+.btn.btn--white{color: #fff;border-color: #fff;}
+.btn.btn--white:hover{background: #fff;color: #333;}
+
+.btn.btn--gold{color: #d9aa8a;border-color: #d9aa8a;}
+.btn.btn--gold:hover{background: #d9aa8a;color: #fff;}
+
+.btn.btn--revers{background: #333;color: #fff;}
+.btn.btn--revers:hover{background: transparent; color: #333;}
+
+
+/* scroll Magic으로 연결할 CSS----------------------------------------------- */
+/* 맨처음 브라우저 로딩시 안보이게 설정 */
+.back-to-position{
+  opacity: 0;
+  transition: all 1s;
+}
+
+/* 왼쪽 > 오른쪽 등장하는 모션의 시작위치 */
+.back-to-position.to-right{transform: translateX(-150px);}
+
+/* 오른쪽 > 왼쪽으로 등장하는 모션의 시작위치 */
+.back-to-position.to-left{transform: translateX(-150px);}
+
+/* show가 추가가되면 실행할 모션-------------- */
+.show .back-to-position{opacity: 1;transform: translateX(0);}
+.show .back-to-position.delay-0{transition-delay: 0;}
+.show .back-to-position.delay-1{transition-delay: 0.3s;}
+.show .back-to-position.delay-2{transition-delay: 0.6s;}
+.show .back-to-position.delay-3{transition-delay: 0.9s;}
+
+/* mo -----------------------------------------------------------------------------------------------------------*/
+
+/* 헤더 영역 */
+header{
+  width: 100%;
+  background: #f6f5f0;
+  border-bottom: 1px solid #c3c3c3;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  margin: auto;
+}
+header h1 a img{width: 50px;padding: 15px;}
+header .inner{width: 400px;max-width: 400px;height: 80px;display: flex;justify-content: space-between;}
+
+header .sub-menu{display: none;}
+header nav .main-menu{display: none;}
+
+/* 아이콘 */
+header .header-icon{
+  width: 200px;
+  position: relative;
+}
+
+header .header-icon div .head-icon1{
+  width: 38px;
+  text-align: center;
+  position: fixed;
+  right: 200px;
+  top: 29px;
+  border-radius: 3px;
+  z-index: 3;
+  filter: opacity(0.2) drop-shadow(0 0 0 #ffffff);
+  transition: all 0.3s;
+}
+header .header-icon div .head-icon2{
+  width: 30px;
+  text-align: center;
+  position: fixed;
+  right: 120px;
+  top: 27px;
+  border-radius: 3px;
+  z-index: 3;
+  filter: opacity(0.2) drop-shadow(0 0 0 #ffffff);
+  transition: all 0.3s;
+}
+header .header-icon div .head-icon1:hover,
+header .header-icon div .head-icon2:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+
+/* 햄버거 메뉴 */
+#sideNav {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  right: -250px;
+  top: 80px;
+  background: #f6f5f0;
+  color: #000;
+  z-index: 2;
+  transition: 0.5s;
+}
+.menu-btn .barber-menu ul li{
+  text-decoration: none;
+  color: #000;
+}
+.burger-menu .burger-gnb .btn {
+  background: #f6f5f0;
+  text-align: left;
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  width: 100%;
+  padding: 20px 10px;
+  font-size: 17px;
+  border-bottom: 2px solid #b3b3b3;
+}
+
+.burger-menu .burger-gnb button::before {
+  content: "\00276F";
+  width: 10px;
+  float: right;
+  margin-right: 10px;
+  font-weight: bold;
+  transform: rotate(90deg);
+}
+
+.burger-menu .burger-gnb .active,
+.burger-menu .burger-gnb .btn:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: bold;
+  color: #999;
+}
+
+.burger-menu .burger-gnb .active::before {
+  content: "\00276F";
+  transform: rotate(270deg);
+}
+
+.burger-menu .burger-gnb .panel {
+  height: 0;
+  padding: 0 10px;
+  font-size: 15px;
+  overflow: hidden;
+  background-color: #d6d6d6;
+  transition: height 300ms ease-out;
+  color: #000;
+  font-weight: bold;
+}
+.burger-menu .burger-gnb .panel li{padding: 5px 0;}
+.burger-menu .burger-gnb .panel li:hover{cursor: pointer;text-decoration: underline;}
+
+#menuBtn {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  position: fixed;
+  right: 30px;
+  top: 20px;
+  border-radius: 3px;
+  z-index: 3;
+  cursor: pointer;
+}
+#menuBtn img {
+  width: 30px;
+  margin-top: 10px;
+  filter: opacity(0.5) drop-shadow(0 0 0 #000);
+  transition: all 0.3s;
+}
+#menuBtn img:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+/* 뱃지 영역 */
+.badges{position: fixed;top:150px;right: 40px;z-index: 20;}
+.badges div{margin-bottom: 15px;}
+.badges div img{border-radius: 10px;cursor: pointer;}
+
+
+/* visual / 비주얼 영역 */
+.visual{position: relative;margin: 80px auto 0;height: 1300px;}
+.visual h4 .visual-bg{position: absolute;top: 0;left: 0;height: 100%;width: 100%;object-fit: cover;}
+.visual .inner{width: 400px;}
+.visual .inner .title{position: absolute;top: 150px;left: 15px;width: 100%;height: 100%;}
+.visual .inner .title a.btn{position: absolute;top:1000px;left: 120px;height: 40px;line-height: 15px;font-weight: normal;font-size: 15px;}
+.visual .inner .img-box .cup1.image{position: absolute;top: 300px;left: 0;z-index: 1;}
+.visual .inner .img-box .cup2.image{position: absolute;top: 420px;left: 0;z-index: 2;}
+.visual .inner .img-box .cup3.image{position: absolute;top: 770px;left: 0;margin: auto;}
+.visual .inner .img-box .cup4.image{position: absolute;top: 1130px;left: 0;margin: auto;display: none;}
+.visual .inner .img-box .spoon{position: absolute;top: 0;left: 0px;}
+
+.visual .fade-in{opacity: 0;}
+
+/* 공지사항 영역 */
+.notice{width: 100%;margin: auto;}
+.notice .notice-line{
+  position: relative;
+  width: 100%;
+}
+.notice .notice-line .bg-left{position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: #333;}
+.notice .notice-line .bg-right{position: absolute;top: 60px;left: 0;width: 100%;height: 100%;background: #f6f5ef;z-index: 2;}
+
+.notice .notice-line .inner{width: 100%;min-width: 500px;height: 65px;}
+.notice .notice-line > .inner > .inner__left{width: 100%;height: 100%;background: #333;display: flex;align-items: center;}
+.notice .notice-line > .inner > .inner__left h2{color: #fff;font-size: 16px;width: 80px;font-weight: 700;margin-left: 10px;}
+.notice .notice-line > .inner > .inner__left .more{display: block;width: 62px;height: 62px;display: flex;align-items: center;margin-right: 20px;}
+.notice .notice-line > .inner > .inner__left .more span{font-size: 35px;color: #fff;}
+
+/* 공지사항 : swiper slide */
+.notice .notice-line > .inner > .inner__left .swiper{
+  height: 65px;
+}
+.notice .notice-line > .inner > .inner__left .swiper .swiper-slide{display: flex;align-items: center;margin-left: 10px;}
+.notice .notice-line > .inner > .inner__left .swiper a{color: #fff;}
+
+.notice .notice-line > .inner > .inner__right{width: 100%;height: 100%;background: #f6f5ef;display: flex;justify-content: center;align-items: center;position: absolute;top: 65px;z-index: 2;}
+.notice .notice-line > .inner > .inner__right h2{margin-right: 10px;}
+.notice .notice-line > .inner > .inner__right span{font-size: 35px;cursor: pointer;}
+
+/* promotion Swiper slide */
+.notice .promotion{width: 100%;height: 670px;background: #f6f5ef;position: relative;transition: height 0.4s;overflow: hidden;}
+.notice .promotion.hide{height: 0;}
+
+.notice .promotion .swiper{
+  width: calc(819px * 3 + 20px);
+  height: 600px;
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  margin-left: calc((819px * 3 + 20px) / -2); /*가운데정렬*/
+}
+.notice .promotion .swiper .swiper-wrapper{
+  display: flex;
+}
+.notice .promotion .swiper .swiper-slide{opacity: 0.5;transition: opacity 1s;position: relative;}
+.notice .promotion .swiper .swiper-slide-active{opacity: 1;}
+.notice .promotion .swiper .swiper-slide a{position: absolute;bottom: 50px;left: 0;right: 0;margin: auto;}
+
+.notice .promotion .swiper .swiper-pagination-bullet{
+  background:transparent #1E3932;
+  width: 13px;height: 13px;outline: none;background-size: contain;
+}
+.notice .promotion .swiper .swiper-pagination-bullet-active{
+  background: #1E3932;
+}
+
+.notice .promotion .swiper .swiper-prev,
+.notice .promotion .swiper .swiper-next{
+  width: 42px;height: 42px;outline: none;border: 2px solid #333;
+  position: absolute;top: 270px;z-index: 5;border-radius: 50%;cursor: pointer;display: flex;justify-content: center;align-items: center;  
+}
+.notice .promotion .swiper .swiper-prev{left: 50%;margin-left: -470px;}
+.notice .promotion .swiper .swiper-next{right: 50%;margin-right: -470px;}
+.notice .promotion .swiper .swiper-prev:hover,
+.notice .promotion .swiper .swiper-next:hover{
+  background: #333;color: #fff;
+}
+
+/* 리워드 영역 */
+/* REWARES area */
+.rewards{position: relative;z-index: 3;height: 330px;background: #d5c798;}
+.rewards .bg-left{
+  display: none;
+}
+.rewards .bg-right{
+  display: none;
+}
+.rewards .inner{
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+.rewards .inner .btn-group{
+  width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+.rewards .inner .btn-group .btn-group__logo img{
+  width: 400px;
+}
+
+.rewards .inner .btn-group .rewards-btn{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.rewards .inner .btn-group .sign-in{
+  width: 130px;
+  margin-right: 10px;
+}
+.rewards .inner .btn-group .sign-up{
+  width: 110px;
+}
+.rewards .inner .btn-group .gift{
+  width: 250px;
+  margin-top: 10px;
+}
+
+/* season-product area / 시즌 프로덕트 영역----------------*/
+.season-product{
+  background: url(../images/2023_summer_promotion_bg.jpg);
+  background-size: cover;
+  width: 100%;
+  height: 800px;
+  margin: auto;
+}
+.season-product .inner{
+  width: 400px;
+  margin: auto;
+  text-align: center;
+}
+.season-product .inner .delay-0{
+  position: absolute;
+}
+
+.season-product .inner .text-group{
+  position: absolute;
+  top: 550px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+.season-product .inner .text-group .btn{
+  margin-top: 30px;
+}
+
+
+/* RESERVE COFFEE area / 리저브 커피 영역-------------------------- */
+.reserve-coffee{
+  background: url(../images/reserve_bg.jpg);
+  margin: auto;
+  background-size: cover;
+}
+.reserve-coffee .inner{
+  width: 450px;
+  height: 600px;
+  margin: auto;
+}
+.reserve-coffee .inner .reserve_logo{
+  display: none;
+}
+.reserve-coffee .inner .text-group{
+  position: absolute;
+  width: 100%;
+  top: 350px;
+  left: 0;
+  margin: auto;
+}
+.reserve-coffee .inner .reserve_img{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+
+/* PICK YOUR FAVORITE area --------------------------------- */
+.pick-your-favorite{
+  background: url(../images/favorite_bg.jpg) no-repeat center fixed;
+  background-size: cover;
+}
+.pick-your-favorite .inner{
+  width: 450px;
+  padding: 110px 0;
+  margin: auto;
+}
+.pick-your-favorite .inner .text-group{
+  width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.pick-your-favorite .inner .text-group .text2{margin: 40px 0;}
+
+
+/* RESERVE STORE area ------------------------------------------ */
+.reserve-store{
+  background: url(../images/reserve_store_bg.jpg)no-repeat center fixed;
+  background-size: cover;
+}
+.reserve-store .inner{
+  width: 450px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.reserve-store .inner .medal{
+  width: 334px;
+  height: 334px;
+  cursor: pointer;
+  perspective: 600px;
+}
+
+.reserve-store .inner .medal .front,
+.reserve-store .inner .medal .back{
+  width: 334;
+  height: 334px;
+  backface-visibility: hidden;
+  transition: all 1s;
+  position: absolute;
+}
+
+.reserve-store .inner .medal .front{
+  position: absolute;
+  transform: rotateY(0);
+}
+.reserve-store .inner .medal:hover .front{
+  transform: rotateY(-180deg);
+}
+.reserve-store .inner .medal .back{
+  transform: rotateY(-180deg);
+}
+.reserve-store .inner .medal:hover .back{
+  transform: rotateY(0);
+}
+
+.reserve-store .inner .medal .back .btn{
+  position: absolute;
+  top: 230px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+
+/* FIND THE  STORE area -------------------------------- */
+.find-store{
+  background: url(../images/find_store_bg.jpg);
+  width: 100%;
+  margin: auto;
+}
+.find-store .inner{
+  width: 400px;
+  height: 730px;
+  margin: auto;
+}
+
+.find-store .inner .texture1{
+  position: absolute;
+  top: 0;
+  left: 200px;
+}
+.find-store .inner .texture2{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.find-store .inner .picture{
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.5); 
+}
+.find-store .inner .picture1{
+  top: -60px;
+  left: 0;
+}
+.find-store .inner .picture2{
+  top: 150px;
+  left: 250px;
+}
+
+.find-store .inner .text-group{
+  position: absolute;
+  left: 0;
+  top: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.find-store .inner .text-group .text2{
+  margin: 20px 0;
+}
+
+/* AWARDS area----------------------- */
+.awards{
+  background: #272727;
+  width: 100%;
+}
+.awards .inner{
+  padding: 40px 0;
+  width: 350px;
+}
+.awards .inner .swiper{
+  width: 100%;
+  height: 40px;
+}
+
+.awards .inner .swiper-prev,
+.awards .inner .swiper-next{
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #c8c8c8;
+  opacity: 0.3;
+  transition: all 0.3s;
+}
+.awards .inner .swiper-prev:hover,
+.awards .inner .swiper-next:hover{
+  background: #fff;
+  color: #333;
+}
+.awards .inner .swiper-prev{left: -60px;}
+.awards .inner .swiper-next{right: -60px;}
+
+
+
+/* 푸터 영역------------------------------ */
+footer{
+  background: #272727;
+  border-top: 1px solid #333;
+  width: 100%;
+}
+footer .inner{
+  padding: 40px 0 60px;
+  width: 410px;
+}
+footer .inner .menu{
+  display: flex;
+  justify-content: center;
+  font-size: 11px;
+}
+footer .inner .menu li{
+  position: relative;
+}
+
+footer .inner .menu li a{
+  padding: 15px;
+  color: #ccc;
+}
+
+footer .inner .menu2{
+  display: flex;
+  justify-content: center;
+  font-size: 11px;
+  list-style: none;
+}
+footer .inner .menu2 li{
+  position:relative;
+}
+footer .inner .menu2 li a{
+  display: block;
+  color: #fff;
+  padding: 20px;
+}
+
+
+footer .inner .menu li:first-child::before{
+  display: none;
+}
+footer .inner .menu li:first-child a{
+  color: #669900;
+  font-weight: bold;
+}
+
+footer .inner .btn-group{
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+footer .inner .btn-group a{
+  color: #ccc;
+  border: 2px solid #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+footer .inner .btn-group a:nth-child(2){
+  margin: 0 20px;
+}
+footer .inner .btn-group a:hover{
+  background: #fff;
+  color: #333;
+}
+
+footer .inner address{
+  text-align: center;
+  color: #999;
+}
+footer .inner address span{
+  margin: 0 15px;
+}
+
+footer .inner .copyright{
+  text-align: center;
+  color: #999;
+  margin: 10px 0 20px;
+}
+
+footer .inner img{
+  margin: auto;
+}
+
+
+/* 탑버튼 */
+#to-top{
+  position: fixed;
+  right: 20px;
+  bottom: 30px;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background: #333;
+  z-index: 15;
+}
+
+
+
+
+
+
+/* tab 영역 -----------------------------------------------------------------------------------------------------------------------*/
+@media all and (min-width : 768px){
+  header .inner{
+    width: 768px;
+    max-width: 950px;
+  }
+
+  /* visual / 비주얼 영역 */
+  .visual{height: 1180px;width: 100%;}
+  .visual .inner .title a.btn{position: absolute;top:880px;left: 120px;height: 40px;line-height: 15px;font-weight: normal;font-size: 15px;}
+  .visual .inner .img-box .cup1.image{position: absolute;top: 300px;left: -100px;z-index: 1;}
+  .visual .inner .img-box .cup2.image{position: absolute;top: 300px;left: 50px;z-index: 2;}
+  .visual .inner .img-box .cup3.image{position: absolute;top: 650px;left: 0;margin: auto;}
+
+  /* 공지사항 영역 */
+  .notice .notice-line{background: #f6f5ef;}
+  .notice .notice-line .bg-left{width: 50%;}
+  .notice .notice-line .bg-right{display: none;}
+
+  .notice .notice-line .inner{width: 768px;display: flex;}
+
+  /* 공지사항 : swiper slide */
+  .notice .notice-line > .inner > .inner__left{width: 50%;}
+  .notice .notice-line > .inner > .inner__left h2{width: 90px;}
+  .notice .notice-line > .inner > .inner__left .swiper .swiper-slide{font-size: 13px;}
+  
+  .notice .notice-line > .inner > .inner__right{width: 50%;top: 0;left: 50%;}
+
+  /* 리워드 영역 */
+/* REWARES area */
+.rewards{height: 200px;width: 100%;}
+.rewards .inner .btn-group{
+  position: relative;
+  width: 768px;
+}
+.rewards .inner .btn-group .btn-group__logo img{
+  position: absolute;
+  left: 30px;
+  top: 0;
+}
+.rewards .inner .btn-group .rewards-btn .sign-in{position: absolute;top: 50px;right: 250px;}
+.rewards .inner .btn-group .rewards-btn .sign-up{position: absolute;top: 50px;right: 140px;}
+.rewards .inner .btn-group .rewards-btn .gift{position: absolute;top: 100px;right: 140px;}
+
+
+/* season-product area ----------------*/
+.season-product{
+  height: 500px;
+}
+.season-product .inner{
+  width: 768px;
+}
+.season-product .inner .delay-0{
+  position: absolute;
+  top: -60px;
+  left: -20px;
+}
+
+.season-product .inner .text-group{
+  position: absolute;
+  top: 150px;
+  right: 70px;
+}
+.season-product .inner .text-group .btn{
+  position: absolute;
+  top: 70px;
+  right: 240px;
+}
+
+
+
+/* RESERVE COFFEE area-------------------------- */
+.reserve-coffee .inner{
+  width: 768px;
+  height: 500px;
+}
+.reserve-coffee .inner .reserve_logo{
+  display: block;
+  position: absolute;
+  top: 160px;
+  left: 50px;
+}
+.reserve-coffee .inner .text-group{
+  position: absolute;
+  top: 280px;
+  left: 280px;
+}
+.reserve-coffee .inner .reserve_img{
+  position: absolute;
+  top: -50px;
+  right: 100px;
+}
+
+
+/* PICK YOUR FAVORITE area --------------------------------- */
+.pick-your-favorite .inner{width: 768px;}
+
+
+/* FIND THE  STORE area -------------------------------- */
+.find-store .inner{
+  width: 768px;
+  height: 330px;
+}
+
+.find-store .inner .texture1{
+  left: 300px;
+}
+.find-store .inner .texture2{
+  position: absolute;
+  right: 100px;
+}
+
+.find-store .inner .picture1{
+  width: 250px;
+  top: -50px;
+  left: 0;
+}
+.find-store .inner .picture2{
+  width: 150px;
+  top: 100px;
+  left: 180px;
+}
+
+.find-store .inner .text-group{
+  position: absolute;
+  left: 350px;
+  top: 50px;
+}
+.find-store .inner .text-group .text2{
+  margin: 20px 0 20px -15px;
+}
+.find-store .inner .text-group .btn{
+  position: absolute;
+  bottom: -100px;
+  left: -610px;
+}
+
+/* awards / 어워드 영역 */
+.awards .inner{width: 650px;}
+.awards .inner .swiper-next{right: -47px;}
+
+
+/* 푸터 영역------------------------------ */
+footer .inner{
+  width: 768px;
+}
+footer .inner .menu{
+  font-size: 15px;
+}
+footer .inner .menu2{
+  font-size: 15px;
+}
+
+footer .inner .btn-group{
+  margin: 20px 0 40px;
+}
+
+
+
+}
+
+
+/* pc영역----------------------------------------------------------------------------- */
+@media all and (min-width : 950px){
+  header{background: chocolate;}
+  #sideNav{display: none;}
+  .header-icon{display: none;}
+
+  header .sub-menu{display: block;}
+  header nav .main-menu{display: block;}
+
+  /* 헤더 영역 */
+  /* header .sub-menu{display: block;}
+  header nav .main-menu{display: block;} */
+  header{
+    width: 100%;
+    background: #f6f5f0;
+    border-bottom: 1px solid #c3c3c3;
+    position: fixed;
+    justify-content: space-around;
+    top: 0;
+    z-index: 10;
+    margin: auto;
+  }
+  header .inner{height: 120px;width: 1200px;}
+  header .inner h1{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: -20px;
+  }
+  header .inner h1 a img{width: 80px;}
+  header .inner .sub-menu{
+    position: absolute;
+    right: 0;
+    top: 10px;
+    display: flex;
+  }
+  header .inner .sub-menu ul.menu{display: flex;}
+  header .inner .sub-menu ul.menu li{position: relative;}
+  header .inner .sub-menu ul.menu li::before{
+    content: "";
+    display: block;
+    width: 1px;
+    height: 12px;
+    background: #e5e5e5;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  header .inner .sub-menu ul.menu li a{
+    display: block;
+    padding: 10px;
+    font-size: 13px;
+    color: #656565;
+    transition: all 0.5;
+  }
+  header .inner .sub-menu ul.menu li a:hover{color: #000;}
+  header .inner .sub-menu ul.menu li:first-child::before{display: none;}
+  
+  header .inner .sub-menu .search{
+    height: 35px;
+    position: relative;
+    transition: all 0.4s;
+    cursor: pointer;
+  }
+  header .inner .sub-menu .search input{
+    height: 28px;
+    width: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: #fff;
+    text-indent: 5px;
+    transition: all 0.4s;
+  }
+  header .inner .sub-menu .search input:focus{
+    width: 150px;
+    border: 1px solid #669900;
+    outline: none;
+  }
+  
+  
+  header .inner .sub-menu .search span{
+    position: absolute;
+    top: 5px;
+    bottom: 0;
+    margin: auto;
+    left: 5px;
+    right: 0;
+  }
+  header .inner .sub-menu .search.focused span{opacity: 0;}
+  
+  /* main menu---------- */
+  header .inner nav ul.main-menu{
+    display: flex;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  header .inner nav ul.main-menu > li .item__name{
+    padding: 10px 20px 30px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  header .inner nav ul.main-menu > li:hover .item__name{
+    background: #2c2a29;color: #669900;
+    text-decoration: underline;
+    border-radius: 6px 6px 0 0;
+  }
+  
+  header .inner nav ul.main-menu > li .item__contents{
+    width: 100%;
+    position: fixed;
+    left: 0;
+    display: none;
+  }
+  header .inner nav ul.main-menu > li:hover .item__contents{display: block;}
+  
+  /* 1층 */
+  header .inner nav ul.main-menu > li .item__contents .contents__menu{background: #2c2a29;height: 320px;}
+  .item__contents ul.inner{display: flex;padding: 20px 0 40px;height: 230px;}
+  .item__contents ul.inner li{padding: 0 50px;}
+  .item__contents ul.inner li h4{font-size: 14px;color: #fff;font-weight: bold;padding: 3px 0 15px;}
+  .item__contents ul.inner li h4:hover{text-decoration: underline;}
+  .item__contents ul.inner li > ul li{font-size: 12px;color: #999;cursor: pointer;padding: 5px 0;}
+  .item__contents ul.inner li > ul li:hover{text-decoration: underline;}
+
+
+  /* main visual area-------------------------- */
+.visual{position: relative;height: 650px;}
+.visual .inner{min-width: 1200px;margin-top: 120px;}
+.visual h4 .visual-bg{position: absolute;height: 650px;width: 100%;}
+.visual .inner .title{position: absolute;top: 250px;left: -70px;}
+.visual .inner .title a.btn{position: absolute;top:170px;left: 120px;height: 40px;line-height: 15px;font-weight: normal;font-size: 15px;}
+.visual .inner .img-box .cup1.image{position: absolute;top: 120px;left: 410px;z-index: 1;}
+.visual .inner .img-box .cup2.image{position: absolute;top: 250px;left: 290px;z-index: 2;}
+.visual .inner .img-box .cup3.image{position: absolute;top: 253px;left: 780px;z-index: 1;}
+.visual .inner .img-box .cup4.image{position: absolute;top: 117px;right: -1060px;display: block;}
+.visual .inner .img-box .spoon{position: absolute;bottom: 0;left: 250px;}
+
+.visual .fade-in{opacity: 0;}
+
+
+/* 공지사항 area --------------------------------------------- */
+.notice .notice-line{position: relative;}
+
+.notice .notice-line .inner{display: flex;height: 65px;min-width: 1200px;}
+
+/* REWARES area */
+.rewards{position: relative;z-index: 10;height: 241px;}
+.rewards .bg-left{
+  width: 50%;
+  height: 100%;
+  background: #272727;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+}
+.rewards .bg-right{
+  width: 50%;
+  height: 100%;
+  background: #d5c798;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+}
+.rewards .inner{
+  background: url(../images/rewards.jpg);
+  width: 1100px;
+  height: 241px;
+  object-fit: contain;
+}
+.rewards .inner .btn-group{
+  position: absolute;
+  right: -12%;
+  top: 60px;
+  width: 250px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.rewards .inner .btn-group .btn-group__logo{display: none;}
+.rewards .inner .btn-group .sign-in{
+  width: 130px;
+  margin-right: 10px;
+}
+.rewards .inner .btn-group .sign-up{
+  width: 110px;
+}
+.rewards .inner .btn-group .gift{
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* season-product area ----------------*/
+.season-product .inner{
+  width: 900px;
+  height: 400px;
+}
+
+
+/* RESERVE COFFEE area-------------------------- */
+.reserve-coffee .inner{
+  width: 1100px;
+  height: 400px;
+}
+.reserve-coffee .inner .reserve_logo{
+  position: absolute;
+  top: 110px;
+  left: 0;
+}
+.reserve-coffee .inner .text-group{
+  position: absolute;
+  top: 124px;
+  left: 208px;
+}
+.reserve-coffee .inner .reserve_img{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+
+/* PICK YOUR FAVORITE area --------------------------------- */
+.pick-your-favorite .inner{
+  width: 1100px;
+}
+
+
+/* FIND THE  STORE area -------------------------------- */
+.find-store .inner{
+  height: 400px;
+  width: 1100px;
+}
+
+.find-store .inner .texture1{
+  left: 400px;
+}
+.find-store .inner .texture2{
+  right: 0;
+  bottom: 0;
+}
+
+.find-store .inner .picture1{
+  top: -60px;
+  left: 0;
+  width: 350px;
+}
+.find-store .inner .picture2{
+  top: 150px;
+  left: 250px;
+  width: 200px;
+}
+
+.find-store .inner .text-group{
+  position: absolute;
+  left: 400px;
+  top: 120px;
+}
+.find-store .inner .text-group .btn{
+  left: -370px;
+  bottom: -60px;
+}
+
+
+/* AWARDS area----------------------- */
+.awards{width: 100%;margin: auto;}
+.awards .inner{width: 1100px;}
+.awards .inner .swiper-next{right: 0;}
+
+
+/* 푸터 영역------------------------------ */
+footer .inner{
+  width: 1200px;
+}
+
+
+
+}

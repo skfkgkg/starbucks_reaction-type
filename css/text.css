@@ -1,0 +1,113 @@
+header{
+  width: 100%;
+  min-width: 1200px;
+  background: #f6f5f0;
+  border-bottom: 1px solid #c3c3c3;
+  position: fixed;
+  justify-content: space-around;
+  top: 0;
+  z-index: 10;
+}
+header .inner{height: 120px;}
+header .inner h1{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 75px;
+}
+header .inner .sub-menu{
+  position: absolute;
+  right: 0;
+  top: 10px;
+  display: flex;
+}
+header .inner .sub-menu ul.menu{display: flex;}
+header .inner .sub-menu ul.menu li{position: relative;}
+header .inner .sub-menu ul.menu li::before{
+  content: "";
+  display: block;
+  width: 1px;
+  height: 12px;
+  background: #e5e5e5;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+header .inner .sub-menu ul.menu li a{
+  display: block;
+  padding: 10px;
+  font-size: 13px;
+  color: #656565;
+  transition: all 0.5;
+}
+header .inner .sub-menu ul.menu li a:hover{color: #000;}
+header .inner .sub-menu ul.menu li:first-child::before{display: none;}
+
+header .inner .sub-menu .search{
+  height: 35px;
+  position: relative;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+header .inner .sub-menu .search input{
+  height: 28px;
+  width: 30px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background: #fff;
+  text-indent: 5px;
+  transition: all 0.4s;
+}
+header .inner .sub-menu .search input:focus{
+  width: 150px;
+  border: 1px solid #669900;
+  outline: none;
+}
+
+
+header .inner .sub-menu .search span{
+  position: absolute;
+  top: 5px;
+  bottom: 0;
+  margin: auto;
+  left: 5px;
+  right: 0;
+}
+header .inner .sub-menu .search.focused span{opacity: 0;}
+
+/* main menu---------- */
+header .inner nav ul.main-menu{
+  display: flex;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+header .inner nav ul.main-menu > li .item__name{
+  padding: 10px 20px 30px;
+  cursor: pointer;
+  font-size: 14px;
+}
+header .inner nav ul.main-menu > li:hover .item__name{
+  background: #2c2a29;color: #669900;
+  text-decoration: underline;
+  border-radius: 6px 6px 0 0;
+}
+
+header .inner nav ul.main-menu > li .item__contents{
+  width: 100%;
+  position: fixed;
+  left: 0;
+  display: none;
+}
+header .inner nav ul.main-menu > li:hover .item__contents{display: block;}
+
+/* 1층 */
+header .inner nav ul.main-menu > li .item__contents .contents__menu{background: #2c2a29;height: 320px;}
+.item__contents ul.inner{display: flex;padding: 20px 0 40px;height: 230px;}
+.item__contents ul.inner li{padding: 0 50px;}
+.item__contents ul.inner li h4{font-size: 14px;color: #fff;font-weight: bold;padding: 3px 0 15px;}
+.item__contents ul.inner li h4:hover{text-decoration: underline;}
+.item__contents ul.inner li > ul li{font-size: 12px;color: #999;cursor: pointer;padding: 5px 0;}
+.item__contents ul.inner li > ul li:hover{text-decoration: underline;}
